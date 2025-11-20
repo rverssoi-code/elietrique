@@ -1,9 +1,7 @@
-// Cloudflare Worker pour gérer les formulaires de contact - VERSION DEBUG
-// Ce fichier doit être dans le dossier /functions/ à la racine de ton projet
+// Cloudflare Worker avec domaine explicite pour MailChannels
 
 export async function onRequestPost(context) {
   try {
-    // Récupérer les données du formulaire
     const formData = await context.request.formData();
     
     const name = formData.get('name');
@@ -12,7 +10,6 @@ export async function onRequestPost(context) {
     const service = formData.get('service');
     const message = formData.get('message');
 
-    // Validation basique
     if (!name || !email || !message) {
       return new Response('Veuillez remplir tous les champs obligatoires.', { 
         status: 400,
@@ -20,11 +17,13 @@ export async function onRequestPost(context) {
       });
     }
 
-    // Préparer l'email
+    // Email avec en-têtes DKIM explicites
     const emailContent = {
       personalizations: [
         {
           to: [{ email: "info@elietrique.com" }],
+          dkim_domain: "elietrique.com",  // ← AJOUT
+          dkim_selector: "mailchannels",   // ← AJOUT
         },
       ],
       from: {
@@ -54,7 +53,6 @@ export async function onRequestPost(context) {
       ],
     };
 
-    // Envoyer l'email via MailChannels
     const mailChannelsResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
       headers: {
@@ -63,12 +61,11 @@ export async function onRequestPost(context) {
       body: JSON.stringify(emailContent),
     });
 
-    // VERSION DEBUG - Afficher les erreurs à l'écran
+    // Mode DEBUG
     if (!mailChannelsResponse.ok) {
       const errorText = await mailChannelsResponse.text();
       const errorStatus = mailChannelsResponse.status;
       
-      // Retourner l'erreur complète pour qu'on puisse la voir
       return new Response(`
         <html>
         <head><title>Erreur Debug</title></head>
@@ -87,7 +84,6 @@ export async function onRequestPost(context) {
       });
     }
 
-    // Succès! Rediriger vers une page de confirmation
     return new Response(null, {
       status: 303,
       headers: {
@@ -96,15 +92,13 @@ export async function onRequestPost(context) {
     });
 
   } catch (error) {
-    // Afficher l'erreur JavaScript à l'écran
     return new Response(`
       <html>
       <head><title>Erreur Debug</title></head>
       <body style="font-family: Arial; padding: 20px;">
         <h2>Erreur JavaScript (Debug Mode)</h2>
         <p><strong>Message:</strong> ${error.message}</p>
-        <p><strong>Stack:</strong></p>
-        <pre style="background: #f4f4f4; padding: 15px; overflow-x: auto;">${error.stack || 'N/A'}</pre>
+        <pre style="background: #f4f4f4; padding: 15px;">${error.stack || 'N/A'}</pre>
         <hr>
         <p><a href="/">Retour au site</a></p>
       </body>
