@@ -63,10 +63,17 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* AJOUT_AJUSTEMENT */
     color: var(--white);
     font-weight: 700;
     letter-spacing: 1px;
+}
+
+/* Logo plus petit sur mobile */
+@media (max-width: 768px) {
+    .logo a {
+        font-size: 1rem;
+    }
 }
 
 .nav-links {
@@ -866,15 +873,28 @@ section {
 
     .hero {
         height: auto;
-        padding: 4rem 0;
+        min-height: 100vh;
+        padding-top: 80px; /* Hauteur de la navbar */
+        padding-bottom: 2rem;
+       /* padding: 4rem 0; */
     }
 
+    /* Pas de padding-top supplémentaire sur mobile - on gère avec le hero */
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+
+    /* Titre plus petit sur mobile */
     .hero-title {
         font-size: 2rem;
+        margin-bottom: 1rem; /* AJOUT */
     }
 
+    /* Subtitle plus petit sur mobile */
     .hero-subtitle {
         font-size: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1rem;
     }
 
     .hero-features {
