@@ -199,7 +199,7 @@
                         <span class="contact-icon">✉️</span>
                         <div>
                             <strong>Email</strong>
-                            <p><a href="mailto:info@elietrique.com">info@elietrique.com</a></p>
+                            <p><a href="/cdn-cgi/l/email-protection#3f565159507f5a53565a4b4d564e4a5a115c5052"><span class="__cf_email__" data-cfemail="630a0d050c23060f0a0617110a1216064d000c0e">[email&#160;protected]</span></a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -219,11 +219,16 @@
                 </div>
                 <div class="contact-form">
                     <h3>Request a Quote</h3>
-                    <!--<form action="#" method="POST"> -->
-                    <!--<form name="contact-elietrique-en" method="POST" data-netlify="true"> -->
-                        <form action="/submit-contact-form" method="POST"> <!-- </form> -->
-                        <input type="hidden" name="form-name" value="contact-elietrique-en">
-
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Replace TA_CLE_API_ICI with your real Web3Forms key -->
+                        <input type="hidden" name="access_key" value="c079da8a-de1c-4d8e-8cfd-f3b6433dfba6">
+                        
+                        <!-- Redirect after success -->
+                        <input type="hidden" name="redirect" value="https://elietrique.com/index-en.html?success=true">
+                        
+                        <!-- Email subject -->
+                        <input type="hidden" name="subject" value="New Quote Request - ElieTrique">
+                        
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Your name *" required>
                         </div>
@@ -236,15 +241,15 @@
                         <div class="form-group">
                             <select name="service" required>
                                 <option value="">Service type *</option>
-                                <option value="installation">Electrical installation</option>
-                                <option value="panneau">Electrical panel</option>
-                                <option value="eclairage">Lighting</option>
-                                <option value="generatrice">Generator</option>
-                                <option value="securite">Security system</option>
-                                <option value="borne">Charging station</option>
-                                <option value="renovation">Renovation</option>
-                                <option value="urgence">Emergency service</option>
-                                <option value="autre">Other</option>
+                                <option value="Electrical installation">Electrical installation</option>
+                                <option value="Electrical panel">Electrical panel</option>
+                                <option value="Lighting">Lighting</option>
+                                <option value="Generator">Generator</option>
+                                <option value="Security system">Security system</option>
+                                <option value="Charging station">Charging station</option>
+                                <option value="Renovation">Renovation</option>
+                                <option value="Emergency service">Emergency service</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -288,7 +293,7 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:5145455559">📞 (514) 545-5559</a></li>
-                        <li><a href="mailto:info@elietrique.com">✉️ info@elietrique.com</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#f1989f979eb1949d9894858398808494df929e9c">✉️ <span class="__cf_email__" data-cfemail="e48d8a828ba481888d8190968d959181ca878b89">[email&#160;protected]</span></a></li>
                         <li>📍 980 rue Laroche</li>
                         <li>Sainte-Thérese, Qc</li>
                         <li>J7E 5M7</li>
@@ -318,7 +323,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
