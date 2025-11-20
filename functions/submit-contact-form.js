@@ -1,4 +1,4 @@
-// Cloudflare Worker pour gérer les formulaires de contact
+// Cloudflare Worker pour gérer les formulaires de contact - VERSION DEBUG
 // Ce fichier doit être dans le dossier /functions/ à la racine de ton projet
 
 export async function onRequestPost(context) {
@@ -24,11 +24,11 @@ export async function onRequestPost(context) {
     const emailContent = {
       personalizations: [
         {
-          to: [{ email: "info@elietrique.com" }], // TON EMAIL ICI
+          to: [{ email: "info@elietrique.com" }],
         },
       ],
       from: {
-        email: "noreply@elietrique.com", // Email FROM (doit être @ton-domaine.com)
+        email: "noreply@elietrique.com",
         name: "Formulaire ElieTrique",
       },
       reply_to: {
@@ -63,12 +63,27 @@ export async function onRequestPost(context) {
       body: JSON.stringify(emailContent),
     });
 
+    // VERSION DEBUG - Afficher les erreurs à l'écran
     if (!mailChannelsResponse.ok) {
       const errorText = await mailChannelsResponse.text();
-      console.error('MailChannels Error:', errorText);
-      return new Response('Erreur lors de l\'envoi. Veuillez réessayer.', { 
+      const errorStatus = mailChannelsResponse.status;
+      
+      // Retourner l'erreur complète pour qu'on puisse la voir
+      return new Response(`
+        <html>
+        <head><title>Erreur Debug</title></head>
+        <body style="font-family: Arial; padding: 20px;">
+          <h2>Erreur MailChannels (Debug Mode)</h2>
+          <p><strong>Status Code:</strong> ${errorStatus}</p>
+          <p><strong>Message d'erreur:</strong></p>
+          <pre style="background: #f4f4f4; padding: 15px; overflow-x: auto;">${errorText}</pre>
+          <hr>
+          <p><a href="/">Retour au site</a></p>
+        </body>
+        </html>
+      `, { 
         status: 500,
-        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
 
@@ -81,10 +96,22 @@ export async function onRequestPost(context) {
     });
 
   } catch (error) {
-    console.error('Error:', error);
-    return new Response('Une erreur est survenue. Veuillez réessayer.', { 
+    // Afficher l'erreur JavaScript à l'écran
+    return new Response(`
+      <html>
+      <head><title>Erreur Debug</title></head>
+      <body style="font-family: Arial; padding: 20px;">
+        <h2>Erreur JavaScript (Debug Mode)</h2>
+        <p><strong>Message:</strong> ${error.message}</p>
+        <p><strong>Stack:</strong></p>
+        <pre style="background: #f4f4f4; padding: 15px; overflow-x: auto;">${error.stack || 'N/A'}</pre>
+        <hr>
+        <p><a href="/">Retour au site</a></p>
+      </body>
+      </html>
+    `, { 
       status: 500,
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      headers: { 'Content-Type': 'text/html; charset=utf-8' }
     });
   }
 }
