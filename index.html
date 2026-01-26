@@ -7,7 +7,7 @@
     <title>ElieTrique.com - Électricien Professionnel à Mirabel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="lang-fr">
     
     <!-- Navigation -->
 <nav class="navbar">
@@ -19,7 +19,7 @@
                 <img src="images/Lgo/Logo_tr_NAME_and_RBQ_nav_bar.png" alt="ElieTrique" class="logo-name">
             </div>
             
-            <!-- Bouton Hamburger (nouveau!) -->
+            <!-- Bouton Hamburger -->
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -28,103 +28,179 @@
             
             <!-- Menu de navigation -->
             <div class="nav-links">
-                <a href="#accueil">Accueil</a>
-                <a href="#services">Services</a>
-                <a href="#apropos">À Propos</a>
-                <a href="#contact">Contact</a>
-                <a href="index-en.html" class="lang-switch">EN</a>
-                <!-- Téléphone optionnel - décommente si tu veux -->
-                <!-- <a href="tel:5145455559" class="phone-button">
-                    <span>📞</span> (514) 545-5559
-                </a> -->
+                <a href="#accueil" data-lang-fr="Accueil" data-lang-en="Home">Accueil</a>
+                <a href="#services" data-lang-fr="Services" data-lang-en="Services">Services</a>
+                <a href="#apropos" data-lang-fr="À Propos" data-lang-en="About">À Propos</a>
+                <a href="#contact" data-lang-fr="Contact" data-lang-en="Contact">Contact</a>
+                <button class="lang-switch" onclick="switchLanguage()">
+                    <span class="lang-fr">EN</span>
+                    <span class="lang-en" style="display:none;">FR</span>
+                </button>
             </div>
         </div>
     </div>
 </nav>
 
-
-
-
-
     <!-- HEADER AVEC VIDÉO -->
-    <section class="hero">
-    <!-- Placeholder pour la vidéo - tu vas l'ajouter plus tard -->
-    <video autoplay muted loop playsinline class="hero-video">
-    <source src="Video/vortex.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-    <h1 class="hero-title">Votre Électricien de Confiance à Mirabel</h1>
-    <p class="hero-subtitle">Services électriques professionnels pour résidentiel, commercial et industriel</p>
-    <div class="hero-buttons">
-    <a href="tel:5145455559" class="btn btn-primary"><!--<span>📞</span>--> Appelez Maintenant</a>
-    <a href="#contact" class="btn btn-secondary">Demander une Soumission</a>
-    </div>
-    <div class="hero-features">
-    <div class="feature-item">
-    <span class="feature-icon">✓</span>
-    <span>Maître Électricien Certifié</span>
-    </div>
-    <div class="feature-item">
-    <span class="feature-icon">✓</span>
-    <span>Service d'Urgence 24/7</span>
-    </div>
-    <div class="feature-item">
-    <span class="feature-icon">✓</span>
-    <span>Garantie sur Travaux</span>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    <section class="hero" id="accueil">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="Video/vortex.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="lang-fr">Votre Électricien de Confiance à Mirabel</span>
+                <span class="lang-en" style="display:none;">Your Trusted Electrician in Mirabel</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-fr">Services électriques professionnels pour résidentiel, commercial et industriel</span>
+                <span class="lang-en" style="display:none;">Professional electrical services for residential, commercial and industrial</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="tel:5145455559" class="btn btn-primary">
+                    <span class="lang-fr">Appelez Maintenant</span>
+                    <span class="lang-en" style="display:none;">Call Now</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="lang-fr">Demander une Soumission</span>
+                    <span class="lang-en" style="display:none;">Request a Quote</span>
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span class="lang-fr">Maître Électricien Certifié</span>
+                    <span class="lang-en" style="display:none;">Certified Master Electrician</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span class="lang-fr">Service d'Urgence 24/7</span>
+                    <span class="lang-en" style="display:none;">24/7 Emergency Service</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span class="lang-fr">Garantie sur Travaux</span>
+                    <span class="lang-en" style="display:none;">Work Guaranteed</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Nos Services</h2>
-                <p>Une gamme complète de services électriques pour tous vos besoins</p>
+                <h2>
+                    <span class="lang-fr">Nos Services</span>
+                    <span class="lang-en" style="display:none;">Our Services</span>
+                </h2>
+                <p>
+                    <span class="lang-fr">Une gamme complète de services électriques pour tous vos besoins</span>
+                    <span class="lang-en" style="display:none;">A complete range of electrical services for all your needs</span>
+                </p>
             </div>
             <div class="services-grid">
+                <!-- Installation Électrique -->
                 <div class="service-card">
                     <div class="service-icon">⚡</div>
-                    <h3>Installation Électrique</h3>
-                    <p>Conception et installation complète de systèmes électriques résidentiels, commerciaux et industriels selon les normes les plus strictes.</p>
+                    <h3>
+                        <span class="lang-fr">Installation Électrique</span>
+                        <span class="lang-en" style="display:none;">Electrical Installation</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Conception et installation complète de systèmes électriques résidentiels, commerciaux et industriels selon les normes les plus strictes.</span>
+                        <span class="lang-en" style="display:none;">Complete design and installation of residential, commercial and industrial electrical systems according to the strictest standards.</span>
+                    </p>
                 </div>
+
+                <!-- Panneaux Électriques -->
                 <div class="service-card">
                     <div class="service-icon">🔌</div>
-                    <h3>Panneaux Électriques</h3>
-                    <p>Remplacement et mise à niveau de panneaux électriques. Installation d'entrées électriques conformes aux normes actuelles.</p>
+                    <h3>
+                        <span class="lang-fr">Panneaux Électriques</span>
+                        <span class="lang-en" style="display:none;">Electrical Panels</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Remplacement et mise à niveau de panneaux électriques. Installation d'entrées électriques conformes aux normes actuelles.</span>
+                        <span class="lang-en" style="display:none;">Replacement and upgrade of electrical panels. Installation of electrical entries compliant with current standards.</span>
+                    </p>
                 </div>
+
+                <!-- Éclairage -->
                 <div class="service-card">
                     <div class="service-icon">💡</div>
-                    <h3>Éclairage</h3>
-                    <p>Installation d'éclairage intérieur et extérieur. Systèmes d'éclairage de sécurité et éclairage décoratif moderne.</p>
+                    <h3>
+                        <span class="lang-fr">Éclairage</span>
+                        <span class="lang-en" style="display:none;">Lighting</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Installation d'éclairage intérieur et extérieur. Systèmes d'éclairage de sécurité et éclairage décoratif moderne.</span>
+                        <span class="lang-en" style="display:none;">Interior and exterior lighting installation. Security lighting systems and modern decorative lighting.</span>
+                    </p>
                 </div>
+
+                <!-- Génératrices -->
                 <div class="service-card">
                     <div class="service-icon">🔋</div>
-                    <h3>Génératrices</h3>
-                    <p>Installation de générateurs d'urgence pour maintenir vos appareils en fonction lors de pannes de courant.</p>
+                    <h3>
+                        <span class="lang-fr">Génératrices</span>
+                        <span class="lang-en" style="display:none;">Generators</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Installation de générateurs d'urgence pour maintenir vos appareils en fonction lors de pannes de courant.</span>
+                        <span class="lang-en" style="display:none;">Installation of emergency generators to keep your devices running during power outages.</span>
+                    </p>
                 </div>
+
+                <!-- Systèmes de Sécurité 
                 <div class="service-card">
                     <div class="service-icon">📹</div>
-                    <h3>Systèmes de Sécurité</h3>
-                    <p>Installation de caméras de sécurité et systèmes de surveillance pour protéger votre propriété.</p>
-                </div>
+                    <h3>
+                        <span class="lang-fr">Systèmes de Sécurité</span>
+                        <span class="lang-en" style="display:none;">Security Systems</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Installation de caméras de sécurité et systèmes de surveillance pour protéger votre propriété.</span>
+                        <span class="lang-en" style="display:none;">Installation of security cameras and surveillance systems to protect your property.</span>
+                    </p>
+                </div>  -->
+
+                <!-- Bornes de Recharge -->
                 <div class="service-card">
                     <div class="service-icon">🚗</div>
-                    <h3>Bornes de Recharge</h3>
-                    <p>Installation de bornes de recharge pour véhicules électriques à domicile ou en entreprise.</p>
+                    <h3>
+                        <span class="lang-fr">Bornes de Recharge</span>
+                        <span class="lang-en" style="display:none;">Charging Stations</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Installation de bornes de recharge pour véhicules électriques à domicile ou en entreprise.</span>
+                        <span class="lang-en" style="display:none;">Installation of electric vehicle charging stations at home or business.</span>
+                    </p>
                 </div>
+
+                <!-- Rénovations -->
                 <div class="service-card">
                     <div class="service-icon">🔧</div>
-                    <h3>Rénovations</h3>
-                    <p>Câblage et mises à niveau électriques pour vos projets de rénovation résidentielle ou commerciale.</p>
+                    <h3>
+                        <span class="lang-fr">Rénovations</span>
+                        <span class="lang-en" style="display:none;">Renovations</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Câblage et mises à niveau électriques pour vos projets de rénovation résidentielle ou commerciale.</span>
+                        <span class="lang-en" style="display:none;">Electrical wiring and upgrades for your residential or commercial renovation projects.</span>
+                    </p>
                 </div>
+
+                <!-- Service d'Urgence -->
                 <div class="service-card">
                     <div class="service-icon">🚨</div>
-                    <h3>Service d'Urgence</h3>
-                    <p>Disponible 24/7 pour répondre à vos urgences électriques rapidement et efficacement.</p>
+                    <h3>
+                        <span class="lang-fr">Service d'Urgence</span>
+                        <span class="lang-en" style="display:none;">Emergency Service</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Disponible 24/7 pour répondre à vos urgences électriques rapidement et efficacement.</span>
+                        <span class="lang-en" style="display:none;">Available 24/7 to respond to your electrical emergencies quickly and efficiently.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -135,22 +211,52 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>À Propos de ElieTrique</h2>
-                    <p class="about-intro">Entreprise locale et familiale, nous offrons des services électriques professionnels à Mirabel et ses environs depuis plusieurs années.</p>
-                    <p>Tous nos services sont soutenus par notre garantie de satisfaction à 100%. Nos électriciens peuvent installer n'importe quoi, d'un nouvel éclairage de sécurité extérieur à un générateur complet pour toute la maison qui maintiendra vos appareils en fonctionnement pendant une panne de courant.</p>
-                    <p>Nos services d'installation sont toujours effectués rapidement et en toute sécurité, en respectant toutes les normes et réglementations en vigueur.</p>
+                    <h2>
+                        <span class="lang-fr">À Propos de ElieTrique</span>
+                        <span class="lang-en" style="display:none;">About ElieTrique</span>
+                    </h2>
+                    <p class="about-intro">
+                        <span class="lang-fr">Entreprise locale et familiale, nous offrons des services électriques professionnels à Mirabel et ses environs depuis plusieurs années.</span>
+                        <span class="lang-en" style="display:none;">Local family business, we offer professional electrical services in Mirabel and surrounding areas for several years.</span>
+                    </p>
+                    <p>
+                        <span class="lang-fr">Tous nos services sont soutenus par notre garantie de satisfaction à 100%. Nos électriciens peuvent installer n'importe quoi, d'un nouvel éclairage de sécurité extérieur à un générateur complet pour toute la maison qui maintiendra vos appareils en fonctionnement pendant une panne de courant.</span>
+                        <span class="lang-en" style="display:none;">All our services are backed by our 100% satisfaction guarantee. Our electricians can install anything from new outdoor security lighting to a complete whole-house generator that will keep your appliances running during a power outage.</span>
+                    </p>
+                    <p>
+                        <span class="lang-fr">Nos services d'installation sont toujours effectués rapidement et en toute sécurité, en respectant toutes les normes et réglementations en vigueur.</span>
+                        <span class="lang-en" style="display:none;">Our installation services are always performed quickly and safely, complying with all current standards and regulations.</span>
+                    </p>
                     <div class="about-features">
                         <div class="about-feature">
-                            <h4>✓ Expertise Professionnelle</h4>
-                            <p>Électriciens qualifiés et certifiés avec cartes de compétence CCQ</p>
+                            <h4>
+                                <span class="lang-fr">✓ Expertise Professionnelle</span>
+                                <span class="lang-en" style="display:none;">✓ Professional Expertise</span>
+                            </h4>
+                            <p>
+                                <span class="lang-fr">Électriciens qualifiés et certifiés avec cartes de compétence CCQ</span>
+                                <span class="lang-en" style="display:none;">Qualified and certified electricians with CCQ competency cards</span>
+                            </p>
                         </div>
                         <div class="about-feature">
-                            <h4>✓ Service Personnalisé</h4>
-                            <p>Approche amicale et professionnelle, à l'écoute de vos besoins</p>
+                            <h4>
+                                <span class="lang-fr">✓ Service Personnalisé</span>
+                                <span class="lang-en" style="display:none;">✓ Personalized Service</span>
+                            </h4>
+                            <p>
+                                <span class="lang-fr">Approche amicale et professionnelle, à l'écoute de vos besoins</span>
+                                <span class="lang-en" style="display:none;">Friendly and professional approach, listening to your needs</span>
+                            </p>
                         </div>
                         <div class="about-feature">
-                            <h4>✓ Travail Garanti</h4>
-                            <p>Tous nos travaux sont garantis et conformes aux normes</p>
+                            <h4>
+                                <span class="lang-fr">✓ Travail Garanti</span>
+                                <span class="lang-en" style="display:none;">✓ Guaranteed Work</span>
+                            </h4>
+                            <p>
+                                <span class="lang-fr">Tous nos travaux sont garantis et conformes aux normes</span>
+                                <span class="lang-en" style="display:none;">All our work is guaranteed and compliant with standards</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -165,29 +271,59 @@
     <section class="why-choose">
         <div class="container">
             <div class="section-header">
-                <h2>Pourquoi Nous Choisir?</h2>
-                <p>Ce qui nous distingue de la concurrence</p>
+                <h2>
+                    <span class="lang-fr">Pourquoi Nous Choisir?</span>
+                    <span class="lang-en" style="display:none;">Why Choose Us?</span>
+                </h2>
+                <p>
+                    <span class="lang-fr">Ce qui nous distingue de la concurrence</span>
+                    <span class="lang-en" style="display:none;">What sets us apart from the competition</span>
+                </p>
             </div>
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-number">01</div>
-                    <h3>Rapidité d'Intervention</h3>
-                    <p>Service rapide et efficace. La plupart du temps, nous offrons un service le jour même de votre appel.</p>
+                    <h3>
+                        <span class="lang-fr">Rapidité d'Intervention</span>
+                        <span class="lang-en" style="display:none;">Fast Response</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Service rapide et efficace. La plupart du temps, nous offrons un service le jour même de votre appel.</span>
+                        <span class="lang-en" style="display:none;">Fast and efficient service. Most of the time, we offer same-day service from your call.</span>
+                    </p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">02</div>
-                    <h3>Prix Compétitifs</h3>
-                    <p>Tarifs justes et transparents sans compromis sur la qualité. Soumissions gratuites disponibles.</p>
+                    <h3>
+                        <span class="lang-fr">Prix Compétitifs</span>
+                        <span class="lang-en" style="display:none;">Competitive Prices</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Tarifs justes et transparents sans compromis sur la qualité. Soumissions gratuites disponibles.</span>
+                        <span class="lang-en" style="display:none;">Fair and transparent rates without compromising quality. Free quotes available.</span>
+                    </p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">03</div>
-                    <h3>Expérience Reconnue</h3>
-                    <p>Des années d'expérience dans tous types de projets électriques résidentiels, commerciaux et industriels.</p>
+                    <h3>
+                        <span class="lang-fr">Expérience Reconnue</span>
+                        <span class="lang-en" style="display:none;">Recognized Experience</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Des années d'expérience dans tous types de projets électriques résidentiels, commerciaux et industriels.</span>
+                        <span class="lang-en" style="display:none;">Years of experience in all types of residential, commercial and industrial electrical projects.</span>
+                    </p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">04</div>
-                    <h3>Sécurité Prioritaire</h3>
-                    <p>Respect strict des normes de sécurité et des codes électriques en vigueur au Québec.</p>
+                    <h3>
+                        <span class="lang-fr">Sécurité Prioritaire</span>
+                        <span class="lang-en" style="display:none;">Safety First</span>
+                    </h3>
+                    <p>
+                        <span class="lang-fr">Respect strict des normes de sécurité et des codes électriques en vigueur au Québec.</span>
+                        <span class="lang-en" style="display:none;">Strict compliance with safety standards and electrical codes in effect in Quebec.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -197,80 +333,120 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Contactez-Nous</h2>
-                <p>N'hésitez jamais quand il s'agit de problèmes électriques potentiels</p>
+                <h2>
+                    <span class="lang-fr">Contactez-Nous</span>
+                    <span class="lang-en" style="display:none;">Contact Us</span>
+                </h2>
+                <p>
+                    <span class="lang-fr">N'hésitez jamais quand il s'agit de problèmes électriques potentiels</span>
+                    <span class="lang-en" style="display:none;">Never hesitate when it comes to potential electrical problems</span>
+                </p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Coordonnées</h3>
+                    <h3>
+                        <span class="lang-fr">Coordonnées</span>
+                        <span class="lang-en" style="display:none;">Contact Information</span>
+                    </h3>
                     <div class="contact-item">
                         <span class="contact-icon">📞</span>
                         <div>
-                            <strong>Téléphone</strong>
+                            <strong>
+                                <span class="lang-fr">Téléphone</span>
+                                <span class="lang-en" style="display:none;">Phone</span>
+                            </strong>
                             <p><a href="tel:5145455559">(514) 545-5559</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">✉️</span>
                         <div>
-                            <strong>Courriel</strong>
-                            <p><a href="/cdn-cgi/l/email-protection#4b22252d240b2e27222e3f39223a3e2e65282426"><span class="__cf_email__" data-cfemail="51383f373e11343d38342523382024347f323e3c">[email&#160;protected]</span></a></p>
+                            <strong>
+                                <span class="lang-fr">Courriel</span>
+                                <span class="lang-en" style="display:none;">Email</span>
+                            </strong>
+                            <p><a href="mailto:info@elietrique.com">info@elietrique.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
                         <div>
-                            <strong>Région Desservie</strong>
-                            <p>Mirabel et ses environs</p>
+                            <strong>
+                                <span class="lang-fr">Région Desservie</span>
+                                <span class="lang-en" style="display:none;">Service Area</span>
+                            </strong>
+                            <p>
+                                <span class="lang-fr">Mirabel et ses environs</span>
+                                <span class="lang-en" style="display:none;">Mirabel and surrounding areas</span>
+                            </p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">⏰</span>
                         <div>
-                            <strong>Disponibilité</strong>
-                            <p>Service d'urgence 24h/24, 7j/7</p>
+                            <strong>
+                                <span class="lang-fr">Disponibilité</span>
+                                <span class="lang-en" style="display:none;">Availability</span>
+                            </strong>
+                            <p>
+                                <span class="lang-fr">Service d'urgence 24h/24, 7j/7</span>
+                                <span class="lang-en" style="display:none;">24/7 emergency service</span>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Demander une Soumission</h3>
+                    <h3>
+                        <span class="lang-fr">Demander une Soumission</span>
+                        <span class="lang-en" style="display:none;">Request a Quote</span>
+                    </h3>
                     <form action="https://api.web3forms.com/submit" method="POST">
-                        <!-- Remplace TA_CLE_API_ICI par ta vraie clé Web3Forms -->
                         <input type="hidden" name="access_key" value="c079da8a-de1c-4d8e-8cfd-f3b6433dfba6">
-                        
-                        <!-- Redirection après succès -->
                         <input type="hidden" name="redirect" value="https://elietrique.com/?success=true">
-                        
-                        <!-- Sujet de l'email -->
                         <input type="hidden" name="subject" value="Nouvelle demande de soumission - ElieTrique">
                         
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Votre nom *" required>
+                            <input type="text" name="name" required
+                                data-placeholder-fr="Votre nom *"
+                                data-placeholder-en="Your name *"
+                                placeholder="Votre nom *">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Votre courriel *" required>
+                            <input type="email" name="email" required
+                                data-placeholder-fr="Votre courriel *"
+                                data-placeholder-en="Your email *"
+                                placeholder="Votre courriel *">
                         </div>
                         <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Votre téléphone *" required>
+                            <input type="tel" name="phone" required
+                                data-placeholder-fr="Votre téléphone *"
+                                data-placeholder-en="Your phone *"
+                                placeholder="Votre téléphone *">
                         </div>
                         <div class="form-group">
-                            <select name="service" required>
-                                <option value="">Type de service *</option>
-                                <option value="Installation électrique">Installation électrique</option>
-                                <option value="Panneau électrique">Panneau électrique</option>
-                                <option value="Éclairage">Éclairage</option>
-                                <option value="Génératrice">Génératrice</option>
-                                <option value="Système de sécurité">Système de sécurité</option>
-                                <option value="Borne de recharge">Borne de recharge</option>
-                                <option value="Rénovation">Rénovation</option>
-                                <option value="Service d'urgence">Service d'urgence</option>
-                                <option value="Autre">Autre</option>
+                            <select name="service" required id="serviceSelect">
+                                <option value="" data-text-fr="Type de service *" data-text-en="Service type *">Type de service *</option>
+                                <option value="Installation électrique" data-text-fr="Installation électrique" data-text-en="Electrical installation">Installation électrique</option>
+                                <option value="Panneau électrique" data-text-fr="Panneau électrique" data-text-en="Electrical panel">Panneau électrique</option>
+                                <option value="Éclairage" data-text-fr="Éclairage" data-text-en="Lighting">Éclairage</option>
+                                <option value="Génératrice" data-text-fr="Génératrice" data-text-en="Generator">Génératrice</option>
+                                <option value="Système de sécurité" data-text-fr="Système de sécurité" data-text-en="Security system">Système de sécurité</option>
+                                <option value="Borne de recharge" data-text-fr="Borne de recharge" data-text-en="Charging station">Borne de recharge</option>
+                                <option value="Rénovation" data-text-fr="Rénovation" data-text-en="Renovation">Rénovation</option>
+                                <option value="Service d'urgence" data-text-fr="Service d'urgence" data-text-en="Emergency service">Service d'urgence</option>
+                                <option value="Autre" data-text-fr="Autre" data-text-en="Other">Autre</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" rows="5" placeholder="Décrivez votre projet ou votre besoin *" required></textarea>
+                            <textarea name="message" rows="5" required
+                                data-placeholder-fr="Décrivez votre projet ou votre besoin *"
+                                data-placeholder-en="Describe your project or need *"
+                                placeholder="Décrivez votre projet ou votre besoin *"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer la Demande</button>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="lang-fr">Envoyer la Demande</span>
+                            <span class="lang-en" style="display:none;">Send Request</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -287,21 +463,27 @@
                 <img src="images/Lgo/Logo_tr.png" alt="ElieTrique" class="logo-foot">
             </div>
             <div class="footer-text">
-                <p>Votre partenaire de confiance pour tous vos besoins électriques à Mirabel.</p>
-                <p class="footer-license">Maître Électricien Certifié RBQ</p>
+                <p>
+                    <span class="lang-fr">Votre partenaire de confiance pour tous vos besoins électriques à Mirabel.</span>
+                    <span class="lang-en" style="display:none;">Your trusted partner for all your electrical needs in Mirabel.</span>
+                </p>
+                <p class="footer-license">
+                    <span class="lang-fr">Maître Électricien Certifié RBQ</span>
+                    <span class="lang-en" style="display:none;">Certified Master Electrician RBQ</span>
+                </p>
             </div>
         </div>
         
-        <!-- GRILLE 4 COLONNES -->
+        <!-- GRILLE 3 COLONNES -->
         <div class="footer-content">
             
             <!-- Colonne 1: Navigation -->
             <div class="footer-section">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#accueil" class="lang-fr">Accueil</a><a href="#accueil" class="lang-en" style="display:none;">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#apropos" class="lang-fr">À Propos</a><a href="#apropos" class="lang-en" style="display:none;">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -310,10 +492,10 @@
             <div class="footer-section">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#services">Installation Électrique</a></li>
-                    <li><a href="#services">Panneaux Électriques</a></li>
-                    <li><a href="#services">Bornes de Recharge</a></li>
-                    <li><a href="#services">Service d'Urgence</a></li>
+                    <li><a href="#services" class="lang-fr">Installation Électrique</a><a href="#services" class="lang-en" style="display:none;">Electrical Installation</a></li>
+                    <li><a href="#services" class="lang-fr">Panneaux Électriques</a><a href="#services" class="lang-en" style="display:none;">Electrical Panels</a></li>
+                    <li><a href="#services" class="lang-fr">Bornes de Recharge</a><a href="#services" class="lang-en" style="display:none;">Charging Stations</a></li>
+                    <li><a href="#services" class="lang-fr">Service d'Urgence</a><a href="#services" class="lang-en" style="display:none;">Emergency Service</a></li>
                 </ul>
             </div>
             
@@ -328,22 +510,28 @@
                     <li>J7E 5M7</li>
                 </ul>
             </div>
-            
-            <!-- Colonne 4: Optionnel (ou laisse juste 3 colonnes) -->
- <!--            <div class="footer-section">
-                <h4>Suivez-nous</h4>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-            
-        </div>     --->
+        </div>
         
         <!-- COPYRIGHT EN LIGNE -->
         <div class="footer-bottom">
-            <p>© 2024 ElieTrique. Tous droits réservés.</p>
-            <p>Site web par <a href="mailto:info@rvs.health">Contacter Louis Jr Simard</a> | <a href="index-en.html">English</a></p>
+            <p>
+                <span class="lang-fr">© 2024 ElieTrique. Tous droits réservés.</span>
+                <span class="lang-en" style="display:none;">© 2024 ElieTrique. All rights reserved.</span>
+            </p>
+            <!-- RVS Credit -->
+            <p class="web-credit">
+                <span class="lang-fr" data-lang="lang-fr">Présence web par</span>
+                <span class="lang-en" data-lang="lang-en" style="display: none;">Web presence by</span>
+                <a href="https://rvs.wtf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px;">
+                    <img src="images/Lgo/favicon.ico" 
+                        alt="RVS" 
+                        style="width: 18px; height: 18px; filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.5));">
+                    <span>RVS Production</span>
+                    <img src="images/Lgo/favicon.ico" 
+                    alt="RVS" 
+                    style="width: 18px; height: 18px; filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.5)); transform: scaleX(-1);">
+                </a>
+            </p>
         </div>
         
     </div>
@@ -354,60 +542,142 @@
         <div class="container">
             <div class="cookie-content">
                 <div class="cookie-text">
-                    <h4>🍪 Nous utilisons des cookies</h4>
-                    <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site et analyser son utilisation. En cliquant sur "Accepter", vous consentez à l'utilisation de tous les cookies. <a href="#" id="cookiePolicy">En savoir plus</a></p>
+                    <h4>🍪 <span class="lang-fr">Nous utilisons des cookies</span><span class="lang-en" style="display:none;">We use cookies</span></h4>
+                    <p>
+                        <span class="lang-fr">Nous utilisons des cookies pour améliorer votre expérience sur notre site et analyser son utilisation. En cliquant sur "Accepter", vous consentez à l'utilisation de tous les cookies. <a href="#" id="cookiePolicy">En savoir plus</a></span>
+                        <span class="lang-en" style="display:none;">We use cookies to improve your experience on our site and analyze its usage. By clicking "Accept", you consent to the use of all cookies. <a href="#" id="cookiePolicy">Learn more</a></span>
+                    </p>
                 </div>
                 <div class="cookie-buttons">
-                    <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Accepter</button>
-                    <button class="cookie-btn cookie-btn-decline" id="declineCookies">Refuser</button>
+                    <button class="cookie-btn cookie-btn-accept" id="acceptCookies">
+                        <span class="lang-fr">Accepter</span>
+                        <span class="lang-en" style="display:none;">Accept</span>
+                    </button>
+                    <button class="cookie-btn cookie-btn-decline" id="declineCookies">
+                        <span class="lang-fr">Refuser</span>
+                        <span class="lang-en" style="display:none;">Decline</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        // ========================================
+        // LANGUAGE SWITCHER
+        // ========================================
+        function switchLanguage() {
+            const body = document.body;
+            const currentLang = body.classList.contains('lang-fr') ? 'fr' : 'en';
+            const newLang = currentLang === 'fr' ? 'en' : 'fr';
+            
+            // Toggle body class
+            body.classList.remove('lang-fr', 'lang-en');
+            body.classList.add(`lang-${newLang}`);
+            
+            // Hide all language elements
+            document.querySelectorAll('.lang-fr, .lang-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show new language elements
+            document.querySelectorAll(`.lang-${newLang}`).forEach(el => {
+                el.style.display = '';
+            });
+            
+            // Update form placeholders
+            updateFormPlaceholders(newLang);
+            
+            // Update select options
+            updateSelectOptions(newLang);
+            
+            // Save preference
+            localStorage.setItem('elietrique-lang', newLang);
+            
+            // Update page title and meta
+            if (newLang === 'en') {
+                document.title = 'ElieTrique.com - Professional Electrician in Mirabel';
+                document.querySelector('meta[name="description"]').content = 'ElieTrique.com - Professional electrical services in Mirabel. Installation, renovation, 24/7 emergency. Certified master electrician.';
+                document.documentElement.lang = 'en';
+            } else {
+                document.title = 'ElieTrique.com - Électricien Professionnel à Mirabel';
+                document.querySelector('meta[name="description"]').content = 'ÉlieTrique.com - Services d\'électricité professionnels à Mirabel. Installation, rénovation, urgence 24/7. Maître électricien certifié.';
+                document.documentElement.lang = 'fr';
+            }
+        }
+        
+        function updateFormPlaceholders(lang) {
+            const inputs = document.querySelectorAll('[data-placeholder-fr], [data-placeholder-en]');
+            inputs.forEach(input => {
+                const placeholder = input.getAttribute(`data-placeholder-${lang}`);
+                if (placeholder) {
+                    input.placeholder = placeholder;
+                }
+            });
+        }
+        
+        function updateSelectOptions(lang) {
+            const select = document.getElementById('serviceSelect');
+            if (select) {
+                const options = select.querySelectorAll('option');
+                options.forEach(option => {
+                    const text = option.getAttribute(`data-text-${lang}`);
+                    if (text) {
+                        option.textContent = text;
+                    }
+                });
+            }
+        }
+        
+        // Load saved language on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('elietrique-lang');
+            if (savedLang && savedLang !== 'fr') {
+                switchLanguage();
+            }
+        });
 
-        // Menu Hamburger Toggle ------------------------------------------------------------------------------------------------------------ //
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const body = document.body;
+        // ========================================
+        // MENU HAMBURGER
+        // ========================================
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+        
+        const allNavLinks = document.querySelectorAll('.nav-links a');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+        
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
 
-// Toggle menu au clic du bouton
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-    body.classList.toggle('menu-open'); // Empêche le scroll quand menu ouvert
-});
-
-// Fermer le menu quand on clique sur un lien
-const allNavLinks = document.querySelectorAll('.nav-links a');
-allNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-        body.classList.remove('menu-open');
-    });
-});
-
-// Fermer le menu si on clique en dehors
-document.addEventListener('click', (e) => {
-    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-        body.classList.remove('menu-open');
-    }
-});
-
-// Fermer le menu si on redimensionne vers desktop
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-        body.classList.remove('menu-open');
-    }
-});
-
-        // Smooth scrolling for anchor links    ------------------------------------------------------------------------------------------------------------ //
+        // ========================================
+        // SMOOTH SCROLLING
+        // ========================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -421,59 +691,59 @@ window.addEventListener('resize', () => {
             });
         });
 
-        // Navbar background on scroll
+        // ========================================
+        // NAVBAR SCROLL EFFECT
+        // ========================================
         window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 165, 0, 0.3)';
-        navbar.style.boxShadow = '0 2px 12px rgba(255, 165, 0, 0.3)';  // ← ORANGE!
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 8px rgba(255, 165, 0, 0.2)';   // ← ORANGE léger!
-    }
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 165, 0, 0.3)';
+                navbar.style.boxShadow = '0 2px 12px rgba(255, 165, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 8px rgba(255, 165, 0, 0.2)';
+            }
         });
 
-        // Cookie Consent Management
+        // ========================================
+        // COOKIE CONSENT
+        // ========================================
         const cookieConsent = document.getElementById('cookieConsent');
         const acceptCookies = document.getElementById('acceptCookies');
         const declineCookies = document.getElementById('declineCookies');
         const cookiePolicy = document.getElementById('cookiePolicy');
 
-        // Check if user has already made a choice
         function checkCookieConsent() {
             const consent = localStorage.getItem('cookieConsent');
             if (!consent) {
-                // Show banner after a short delay
                 setTimeout(() => {
                     cookieConsent.classList.add('show');
                 }, 1000);
             }
         }
 
-        // Accept cookies
         acceptCookies.addEventListener('click', function() {
             localStorage.setItem('cookieConsent', 'accepted');
             cookieConsent.classList.remove('show');
-            
-            // Here you can add your Google Analytics or other tracking code
-            console.log('Cookies accepted - Analytics can be initialized');
-            // Example: initializeAnalytics();
+            console.log('Cookies accepted');
         });
 
-        // Decline cookies
         declineCookies.addEventListener('click', function() {
             localStorage.setItem('cookieConsent', 'declined');
             cookieConsent.classList.remove('show');
-            console.log('Cookies declined - No tracking');
+            console.log('Cookies declined');
         });
 
-        // Cookie policy link (you can customize this)
         cookiePolicy.addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Politique de cookies:\n\nNous utilisons des cookies pour:\n- Améliorer votre expérience de navigation\n- Analyser le trafic du site\n- Personnaliser le contenu\n\nVous pouvez modifier vos préférences à tout moment en effaçant les données de votre navigateur.');
+            const currentLang = document.body.classList.contains('lang-fr') ? 'fr' : 'en';
+            if (currentLang === 'fr') {
+                alert('Politique de cookies:\n\nNous utilisons des cookies pour:\n- Améliorer votre expérience de navigation\n- Analyser l\'utilisation du site\n- Mémoriser vos préférences\n\nVous pouvez refuser les cookies à tout moment.');
+            } else {
+                alert('Cookie Policy:\n\nWe use cookies to:\n- Improve your browsing experience\n- Analyze site usage\n- Remember your preferences\n\nYou can refuse cookies at any time.');
+            }
         });
 
-        // Initialize on page load
         checkCookieConsent();
     </script>
 </body>
