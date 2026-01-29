@@ -1,0 +1,13 @@
+# Robots.txt pour ÉlieTrique
+# https://elietrique.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://elietrique.com/sitemap.xml
+
+# Bloquer les répertoires non-publics
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
