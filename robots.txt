@@ -4,10 +4,17 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://elietrique.com/sitemap.xml
+# Autoriser les images et CSS/JS
+Allow: /images/
+Allow: /Video/
+Allow: /*.css$
+Allow: /*.js$
 
-# Bloquer les répertoires non-publics
+# Bloquer les répertoires sensibles
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
+Disallow: /cdn-cgi/
+
+# Sitemap
+Sitemap: https://elietrique.com/sitemap.xml
