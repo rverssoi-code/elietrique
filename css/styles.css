@@ -58,6 +58,36 @@ body {
     padding: 0 20px;
 }
 
+/* Logo dans le Hero */
+.hero-logo {
+    margin-bottom: 0.5rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-logo-image {
+    max-width: 450px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.856));
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive logo */
+@media (max-width: 768px) {
+    .hero-logo-image {
+        max-width: 280px;
+    }
+}
+
 /* ═══════════════════════════════════════════════════════════
    2. NAVIGATION - Menu blanc avec logo double
    ═══════════════════════════════════════════════════════════ */
@@ -78,7 +108,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0;
 }
 
 /* Logo principal (icône + texte) */
@@ -90,7 +120,7 @@ body {
 
 /* Logo icône (image de gauche) */
 .logo-image {
-    height: 50px;
+    height: 100px;
     width: auto;
     transition: all 0.3s ease;
 }
@@ -212,6 +242,67 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 0;
+}
+
+/* Vidéo de fond */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/*  OVERLAY AMBRÉ - Vitre teintée par-dessus la vidéo */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(219, 141, 52, 0.1) 0%,    /* Orange ambré léger */
+        rgba(44, 62, 80, 0.8) 50%,     /* Gris-bleu au centre */
+        rgba(219, 141, 52, 0.1) 100%   /* Orange ambré léger */
+    );
+    z-index: 1;
+    pointer-events: none; /* Permet de cliquer à travers */
+}
+
+/* Contenu du hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 2rem;
+    max-width: 1200px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* 🔥 Ombrage plus fort pour lisibilité */
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* 🔥 Ombrage plus fort */
+}
+
+/* Boutons du hero */
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
 }
 
 /* Contenu du hero */
@@ -435,6 +526,17 @@ body {
     display: flex;
     align-items: center;
     margin-top: 70px;
+}
+
+/* Titre blanc avec ombrage pour la section Why Choose */
+.why-choose .section-header h2 {
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.why-choose .section-header p {
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .why-grid {
