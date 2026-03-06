@@ -29,7 +29,7 @@
 :root {
     --primary-dark: #2C3E50;      /* Gris-bleu foncé */
     --primary-blue: #3498DB;      /* Bleu principal */
-    --primary-orange: #db8d34;    /* Orange du logo */
+    --primary-orange: #f9970f;    /* Orange EXACT du logo ÉlieTrique */
     --secondary-blue: #5DADE2;    /* Bleu secondaire */
     --light-gray: #ECF0F1;        /* Gris clair */
     --medium-gray: #BDC3C7;       /* Gris moyen */
@@ -281,13 +281,22 @@ body {
     color: var(--white);
     padding: 2rem;
     max-width: 1200px;
+    
+    /* 🎬 FADE IN ANIMATION - AJOUTE ÇA ICI! */
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+/* Classe pour faire apparaître */
+.hero-content.fade-in {
+    opacity: 1;
 }
 
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* 🔥 Ombrage plus fort pour lisibilité */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* 🔥 Ombrage plus fort */
 }
 
 .hero-subtitle {

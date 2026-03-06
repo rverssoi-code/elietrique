@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   PORTFOLIO SECTION - SUPER WOW! 🔥
+   PORTFOLIO SECTION
    Ajout pour la galerie avec lightbox
    ═══════════════════════════════════════════════════════════ */
 
@@ -274,5 +274,113 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   FIN PORTFOLIO CSS - Peace & Flow! 🌊
+   BOUTON GALERIE COMPLÈTE - AJOUT CSS
+   À ajouter à la fin de portfolio.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* Container du bouton centré */
+.portfolio-gallery-btn-container {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+/* Bouton principal de la galerie */
+.btn-gallery {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-orange) 0%, #e67e22 100%);
+    color: var(--white);
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(219, 141, 52, 0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de brillance au hover */
+.btn-gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.btn-gallery:hover::before {
+    left: 100%;
+}
+
+.btn-gallery:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(219, 141, 52, 0.6);
+    background: linear-gradient(135deg, #e67e22 0%, var(--primary-orange) 100%);
+}
+
+.btn-gallery:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Compteur dans le lightbox */
+.lightbox-counter {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE POUR LE BOUTON
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .btn-gallery {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .portfolio-gallery-btn-container {
+        margin-top: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .lightbox-counter {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-gallery {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FIN CSS BOUTON GALERIE - Peace & Flow!
+   N0U$ $0Mm3 1@
+   --- J & C ---
    ═══════════════════════════════════════════════════════════ */

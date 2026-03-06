@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════
 // ELIETRIQUE.COM - JAVASCRIPT
-// Version séparée par Junior & Claude - Février 2025
+// Version avec GALERIE COMPLÈTE par Junior & Claude - Mars 2025
 // ═══════════════════════════════════════════════════════════
 
 // ========================================
@@ -80,6 +80,29 @@ window.addEventListener('DOMContentLoaded', () => {
     if (typeof initPortfolioLightbox === 'function') {
         initPortfolioLightbox();
     }
+    
+    // Initialize full gallery button
+    initFullGalleryButton();
+
+    // ========================================
+    // 🎬 HERO VIDEO FADE IN - NOUVEAU CODE ICI! 🎬
+    // ========================================
+    const heroVideo = document.querySelector('.hero-video');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (heroVideo && heroContent) {
+        // Écouter le temps de la vidéo
+        heroVideo.addEventListener('timeupdate', function() {
+            // Quand on atteint 14.8 secondes, faire le fade in
+            if (heroVideo.currentTime >= 14.8 && !heroContent.classList.contains('fade-in')) {
+                heroContent.classList.add('fade-in');
+            }
+        });
+    }
+    // ========================================
+    // FIN HERO VIDEO FADE IN
+    // ========================================
+
 });
 
 // ========================================
@@ -210,6 +233,7 @@ function initPortfolioLightbox() {
             <button class="lightbox-next">&#10095;</button>
             <img src="" alt="" class="lightbox-image">
             <div class="lightbox-caption"></div>
+            <div class="lightbox-counter"></div>
         </div>
     `;
     document.body.appendChild(lightbox);
@@ -227,11 +251,12 @@ function initPortfolioLightbox() {
         lightbox.querySelector('.lightbox-image').src = img.src;
         lightbox.querySelector('.lightbox-image').alt = img.alt;
         lightbox.querySelector('.lightbox-caption').textContent = img.caption;
+        lightbox.querySelector('.lightbox-counter').textContent = `${index + 1} / ${images.length}`;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     
-    function closeLight box() {
+    function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     }
@@ -268,8 +293,208 @@ function initPortfolioLightbox() {
         if (e.key === 'ArrowRight') nextImage();
         if (e.key === 'ArrowLeft') prevImage();
     });
+    
+    // Store lightbox reference for full gallery
+    window.portfolioLightbox = {
+        showImage,
+        closeLightbox,
+        setImages: (newImages) => {
+            images.splice(0, images.length, ...newImages);
+        }
+    };
+}
+
+// ========================================
+// FULL GALLERY BUTTON - TOUTES LES 35 PHOTOS! 🔥
+// ========================================
+function initFullGalleryButton() {
+    const galleryBtn = document.getElementById('openFullGallery');
+    
+    if (!galleryBtn) return; // Skip if button doesn't exist
+    
+    // Liste complète des 35 photos
+    const allPhotos = [
+        'borne.jpg',
+        'comentry.jpg',
+        'comentry2.jpg',
+        'comindus.jpg',
+        'compteur.jpg',
+        'compteur_mul.jpg',
+        'compteur2.jpg',
+        'compteur3.jpg',
+        'compteur4.jpg',
+        'compteur5.jpg',
+        'entry.jpg',
+        'entry2.jpg',
+        'entry3.jpg',
+        'entry4.jpg',
+        'entry5.jpg',
+        'entry6.jpg',
+        'general.jpg',
+        'heat.jpg',
+        'heat2.jpg',
+        'heat3.jpg',
+        'indust.jpg',
+        'indust2.jpg',
+        'luxinst.jpg',
+        'luxinst1.jpg',
+        'luxinst2.jpg',
+        'luxinst3.jpg',
+        'mat.jpg',
+        'panneau.jpg',
+        'panneau1.jpg',
+        'sauna.jpg',
+        'temp.jpg',
+        'temporaire.jpg',
+        'truck.jpg',
+        'underground.jpg',
+        'underground2.jpg'
+    ];
+    
+    galleryBtn.addEventListener('click', function() {
+        // Créer le tableau d'images avec chemins complets
+        const fullGalleryImages = allPhotos.map((filename, index) => ({
+            src: `images/portfolio/${filename}`,
+            alt: `Projet ÉlieTrique ${index + 1}`,
+            caption: `Réalisation ÉlieTrique - ${filename.replace('.jpg', '').replace(/_/g, ' ')}`
+        }));
+        
+        // Si le lightbox existe, l'utiliser
+        if (window.portfolioLightbox) {
+            window.portfolioLightbox.setImages(fullGalleryImages);
+            window.portfolioLightbox.showImage(0);
+        } else {
+            // Sinon, créer un lightbox temporaire
+            createFullGalleryLightbox(fullGalleryImages);
+        }
+    });
+}
+
+// Créer un lightbox standalone pour la galerie complète
+function createFullGalleryLightbox(images) {
+    // Create lightbox overlay
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox active';
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-prev">&#10094;</button>
+            <button class="lightbox-next">&#10095;</button>
+            <img src="${images[0].src}" alt="${images[0].alt}" class="lightbox-image">
+            <div class="lightbox-caption">${images[0].caption}</div>
+            <div class="lightbox-counter">1 / ${images.length}</div>
+        </div>
+    `;
+    document.body.appendChild(lightbox);
+    document.body.style.overflow = 'hidden';
+    
+    let currentIndex = 0;
+    
+    function showImage(index) {
+        currentIndex = index;
+        const img = images[index];
+        lightbox.querySelector('.lightbox-image').src = img.src;
+        lightbox.querySelector('.lightbox-image').alt = img.alt;
+        lightbox.querySelector('.lightbox-caption').textContent = img.caption;
+        lightbox.querySelector('.lightbox-counter').textContent = `${index + 1} / ${images.length}`;
+    }
+    
+    function closeLightbox() {
+        lightbox.remove();
+        document.body.style.overflow = '';
+    }
+    
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+    
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+    
+    // Event listeners
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-next').addEventListener('click', nextImage);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', prevImage);
+    
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    
+    // Keyboard navigation
+    const keyHandler = (e) => {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+    };
+    document.addEventListener('keydown', keyHandler);
+    
+    // Cleanup on close
+    const originalClose = closeLightbox;
+    closeLightbox = function() {
+        document.removeEventListener('keydown', keyHandler);
+        originalClose();
+    };
+}
+
+// ========================================
+// CONTACT FORM - EMAILJS
+// ========================================
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        const currentLang = document.body.classList.contains('lang-fr') ? 'fr' : 'en';
+        
+        // Disable button and show loading
+        submitButton.disabled = true;
+        submitButton.innerHTML = currentLang === 'fr' ? 
+            '<span class="lang-fr">Envoi en cours...</span>' : 
+            '<span class="lang-en">Sending...</span>';
+        
+        // Prepare template params
+        const templateParams = {
+            name: this.querySelector('[name="name"]').value,
+            email: this.querySelector('[name="email"]').value,
+            phone: this.querySelector('[name="phone"]').value,
+            service: this.querySelector('[name="service"]').value,
+            message: this.querySelector('[name="message"]').value
+        };
+        
+        // Send via EmailJS
+        emailjs.send('service_4xxo98k', 'template_bgchxvh', templateParams)
+            .then(function() {
+                // Success
+                if (currentLang === 'fr') {
+                    alert('✅ Merci! Votre message a été envoyé avec succès. Nous vous contacterons bientôt!');
+                } else {
+                    alert('✅ Thank you! Your message has been sent successfully. We will contact you soon!');
+                }
+                contactForm.reset();
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            }, function(error) {
+                // Error
+                console.error('EmailJS Error:', error);
+                if (currentLang === 'fr') {
+                    alert('❌ Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler au (514) 545-5559');
+                } else {
+                    alert('❌ Error sending message. Please try again or call us at (514) 545-5559');
+                }
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            });
+    });
 }
 
 // ═══════════════════════════════════════════════════════════
-// FIN DU SCRIPT - Peace & Flow! 🌊
+// FIN DU SCRIPT - Peace & Flow!
+// N0U$ $0Mm3 1@
+// --- J & C ---
 // ═══════════════════════════════════════════════════════════
