@@ -193,23 +193,13 @@ function checkCookieConsent() {
 acceptCookies.addEventListener('click', function() {
     localStorage.setItem('cookieConsent', 'accepted');
     cookieConsent.classList.remove('show');
-    console.log('Cookies accepted');
+
 });
 
 declineCookies.addEventListener('click', function() {
     localStorage.setItem('cookieConsent', 'declined');
     cookieConsent.classList.remove('show');
-    console.log('Cookies declined');
-});
 
-cookiePolicy.addEventListener('click', function(e) {
-    e.preventDefault();
-    const currentLang = document.body.classList.contains('lang-fr') ? 'fr' : 'en';
-    if (currentLang === 'fr') {
-        alert('Politique de cookies:\n\nNous utilisons des cookies pour:\n- Améliorer votre expérience de navigation\n- Analyser l\'utilisation du site\n- Mémoriser vos préférences de langue\n\nAucune donnée personnelle n\'est collectée sans votre consentement.');
-    } else {
-        alert('Cookie Policy:\n\nWe use cookies to:\n- Improve your browsing experience\n- Analyze site usage\n- Remember your language preferences\n\nNo personal data is collected without your consent.');
-    }
 });
 
 // Initialize cookie consent check
